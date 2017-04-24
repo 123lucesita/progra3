@@ -28,65 +28,65 @@ import javax.swing.Timer;
  *
  * @author LUCESITA GARCIA RIVERO
  */
-public class Ventana extends JFrame {
-    
+public class Ventana extends JFrame implements ActionListener {
+
     private JLabel lblchocolates;
-    
+
     private JLabel lblnombre;
     private JTextField txtnombre;
-    
+
     private JLabel lblci;
     private JTextField txtci;
-    
+
     private JLabel lbldireccion;
     private JTextField txtdireccion;
-    
+
     private JButton btnGuardar;
-    
-    private JButton btnMostrar;  
-    
+
+    private JButton btnMostrar;
+
     private Timer time;
     private JTextArea pantalla;
-    private JScrollPane ampliar;  
+    private JScrollPane ampliar;
     private JPanel contenedor;
     private final File informacion;
     private FileWriter escribir;
     private PrintWriter linea;
     private FileReader leer;
     private BufferedReader leerLinea;
-    
+
     private JLabel lbltemporal;
-    
+
     private JLabel lblproducto;
-    private JComboBox cbxcontenido;
-    
+    private JComboBox cbxproducto;
+
     private JLabel lblproducto1;
     private JTextField txtproducto1;
-    
+
     private JLabel lblproducto2;
     private JTextField txtproducto2;
-    
+
     private JLabel lblproducto3;
     private JTextField txtproducto3;
-    
+
     private JButton btncalcular;
-    
+
     private JButton btnlimpiar;
-    
+
     private JLabel lblpreciototal;
-   
-     private JTextField txtpreciototal;
-    
- public Ventana() {
+
+    private JTextField txtpreciototal;
+
+    public Ventana() {
         super();
         configurarVentana();
         inicializarComponentes();
-        informacion = new File("Lista.doc");
+        informacion = new File("Listas Chocolate.doc");
     }
 
     private void configurarVentana() {
         this.setTitle("Lista De Nombres");// Nombre del formulario
-        this.setSize(500, 800); // tamaño del formulario
+        this.setSize(500, 600); // tamaño del formulario
         this.setLocationRelativeTo(null); // // Ubicacion con repecto a
         this.setLayout(null); // TAMAÑO Y POSICION DE LOS COMPONENTES
         this.setResizable(false); //SIRVE PARA QUE NO SE MODIFIQUE EL TAMAÑO
@@ -94,126 +94,123 @@ public class Ventana extends JFrame {
     }
 
     private void inicializarComponentes() {
-      lblchocolates = new JLabel();  
-        
-        lblnombre = new JLabel();        
+        lblchocolates = new JLabel();
+
+        lblnombre = new JLabel();
         txtnombre = new JTextField();
-       
+
         lblci = new JLabel();
         txtci = new JTextField();
-        
+
         lbldireccion = new JLabel();
         txtdireccion = new JTextField();
-        
+
         lbltemporal = new JLabel();
-        
+
         btnGuardar = new JButton();
-        
-        btnMostrar = new JButton(); 
-        
+
+        btnMostrar = new JButton();
+
         contenedor = new JPanel();   //Agregando un JPanel,para usarlo como contenedor
-        pantalla = new JTextArea(5, 25);  // creando un nuevo textArea
+        pantalla = new JTextArea(15, 25);  // creando un nuevo textArea
         ampliar = new JScrollPane(pantalla, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        
+
         lblproducto = new JLabel();
-        cbxcontenido = new JComboBox();
-        
-        lblproducto1= new JLabel();
-        txtproducto1=new JTextField();
-        
+        cbxproducto = new JComboBox();
+
+        lblproducto1 = new JLabel();
+        txtproducto1 = new JTextField();
+
         lblproducto2 = new JLabel();
         txtproducto2 = new JTextField();
-        
+
         lblproducto3 = new JLabel();
         txtproducto3 = new JTextField();
-        
-        
+
         btncalcular = new JButton();
-        
+
         btnlimpiar = new JButton();
-        
+
         lblpreciototal = new JLabel();
-        
-        txtpreciototal =  new JTextField();  
-       
-        //
-        
-        lblchocolates.setText("CHOCOLATES BRESKA");
-        lblchocolates.setBounds(80,70,100,20);
-        
-        lblnombre.setText("Nombres y apellidos");
-        txtnombre.setBounds(90, 70, 100, 25); 
-        
-        
-        lblci.setText("C.I.");
-        txtci.setBounds(230, 70, 100, 25);
-        
-        lbldireccion.setText("Direccion");
-        txtdireccion.setBounds(240,70, 100,25);
-        
-        btnGuardar.setText("Guardar Datos");
-        btnGuardar.setBounds(30, 150, 150, 30);
-        
-        btnGuardar.addActionListener((ActionListener) this);
-        
-        lbltemporal.setText("Datos guardados con exito!");
-        lbltemporal.setBounds(30, 175, 180, 30);        
-        lbltemporal.setVisible(false);
-        
-        btnMostrar.setText("Mostrar cliente");
-        btnMostrar.setBounds(215, 150, 150, 30);
-        btnMostrar.addActionListener((ActionListener) this);
-        pantalla.setEditable(false);
-        
-        contenedor.setBounds(30, 220, 335, 90);
-        contenedor.add(ampliar);
-        
-        lblproducto.setText("Producto");
-        lblproducto.setBounds(34,228,335,90);     
-        
-        lblproducto1.setText("chocolate 1:");
-        lblproducto1.setBounds(80, 330, 70, 20);
-        
-        txtproducto1.setBounds(150, 330, 140, 25);
-        
-        lblproducto2.setText("chocolate 2: ");
-        lblproducto2.setBounds(80,370,70,20); 
-        
-        txtproducto2.setBounds(150,370,140,25);
-        
-        lblproducto3.setText("chocolate 3: ");
-        lblproducto3.setBounds(80,370,70,20);        
-        txtproducto3.setBounds(150,370,140,25);
-        
-        lblproducto.setText("PRODUCTOS");
-        lblproducto.setBounds(80,410,70,20);
-        
-        cbxcontenido.setBounds(150,410,160,20);
-        
-        btncalcular.setText("Calcular");
-        btncalcular.setBounds(90,450,90,25);
-        btncalcular.addActionListener((ActionListener) this);
-        
-        
-        btnlimpiar.setText("Limpiar");
-        btnlimpiar.setBounds(200,450,130,25);
-        btncalcular.addActionListener((ActionListener) this);
-        
-       
-//        lblresultado.setText("Resultado");
-//        lblresultado.setBounds(150,490,130,25);
-//        
-//        txtresultado.setBounds(220,490,130,25);
-//        cbxoperacion.addItem("Seleccione opcion");
-//        cbxoperacion.addItem("Suma");
-//        cbxoperacion.addItem("Resta");
-//        cbxoperacion.addItem("Multiplicacion");
-//        cbxoperacion.addItem("Division");
-//        cbxoperacion.addItem("modulo");
+
+        txtpreciototal = new JTextField();
 
         //
         
+        
+        lblchocolates.setText("***CHOCOLATES BRESKA***");
+        lblchocolates.setBounds(160, 70, 200, 20);
+
+        lblnombre.setText("Nombres y apellidos");
+        lblnombre.setBounds(13,160,150,30);
+        txtnombre.setBounds(134, 160, 150, 30);
+
+        lblci.setText("C.I.");
+        lblci.setBounds(13,200,150,30);        
+        txtci.setBounds(134, 200, 150, 30);
+
+        lbldireccion.setText("Direccion");
+        lbldireccion.setBounds(13,200,150,30);
+        txtdireccion.setBounds(134, 230, 150, 30);
+
+        btnGuardar.setText("Guardar Datos");
+        btnGuardar.setBounds(320, 150, 150, 30);
+
+        btnGuardar.addActionListener((ActionListener) this);
+
+        lbltemporal.setText("Datos guardados con exito!");
+        lbltemporal.setBounds(30, 175, 180, 30);
+        lbltemporal.setVisible(false);
+
+        btnMostrar.setText("Mostrar cliente");
+        btnMostrar.setBounds(320, 230, 150, 30);
+        btnMostrar.addActionListener((ActionListener) this);
+        pantalla.setEditable(false);
+
+        contenedor.setBounds(100, 280, 345, 100);
+        contenedor.add(ampliar);
+
+        lblproducto.setText("Producto");
+        lblproducto.setBounds(34, 45, 335, 90);
+
+//        lblproducto1.setText("chocolate 1:");
+//        lblproducto1.setBounds(80, 330, 70, 20);
+//
+//        txtproducto1.setBounds(150, 330, 140, 25);
+//
+//        lblproducto2.setText("chocolate 2: ");
+//        lblproducto2.setBounds(80, 370, 70, 20);
+//
+//        txtproducto2.setBounds(150, 370, 140, 25);
+//
+//        lblproducto3.setText("chocolate 3: ");
+//        lblproducto3.setBounds(80, 370, 70, 20);
+//        txtproducto3.setBounds(150, 370, 140, 25);
+
+      
+        cbxproducto.setBounds(150, 410, 160, 20);
+
+        btncalcular.setText("Calcular");
+        btncalcular.setBounds(120, 500, 120, 30);
+        btncalcular.addActionListener((ActionListener) this);
+
+        btnlimpiar.setText("Limpiar");
+        btnlimpiar.setBounds(280, 500, 120, 30);
+        btncalcular.addActionListener((ActionListener) this);
+
+//        lblresultado.setText("Resultado");
+//        lblresultado.setBounds(150,490,130,25);
+        
+        lblproducto.setBounds(70,407,130,30);
+        cbxproducto.addItem("CHOCOLATES: ");
+        cbxproducto.addItem("Chocolate con relleno de cafe");
+        cbxproducto.addItem("Chocolate con relleno de Frutilla");
+        cbxproducto.addItem("chocolate relleno de durazno");
+        cbxproducto.addItem("Chocolate beso de negro");
+        
+        
+        //
         this.add(lblchocolates);
         this.add(lblnombre);
         this.add(txtnombre);
@@ -223,13 +220,14 @@ public class Ventana extends JFrame {
         this.add(btnMostrar);
         this.add(contenedor);
         this.add(lblproducto);
-        this.add(cbxcontenido);
+        this.add(cbxproducto);
         this.add(btncalcular);
         this.add(btnlimpiar);
         this.add(lblpreciototal);
         this.add(txtpreciototal);
 
     }
+
     public void guardarInformacion(String nombre) {
         try {
             // Crear un objeto de tipo FileWriter, para escribir en el documento.
@@ -262,12 +260,10 @@ public class Ventana extends JFrame {
             JOptionPane.showMessageDialog(null, e.getStackTrace());
         }
     }
-    
-    public void producto (int producto1, int producto2, int procucto3) {
-               
-        }
-         
-       
+
+    public void producto(int producto1, int producto2, int procucto3) {
+
+    }
 
     //Metodo mostrarInfomacion, mostrara todo el contenido del documento creado
     public void mostrarInformacion() {
@@ -305,20 +301,12 @@ public class Ventana extends JFrame {
             mostrarInformacion();
 
         }
-        
+
 //        if (ae.getSource() == btncalcular){
 //            
 //            Double calcular = Double.parseDouble(txtnumero1.getText());            
 //            Double calcularr = Double.parseDouble(txtnumero2.getText());
 //                    
 //            operacion(calcular,calcularr);
-        
     }
 }
-
-    
-
-
-
-
-
