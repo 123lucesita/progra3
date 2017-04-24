@@ -147,7 +147,7 @@ public class Ventana extends JFrame implements ActionListener {
         txtnombre.setBounds(134, 160, 150, 30);
 
         lblci.setText("C.I.");
-        lblci.setBounds(13,200,150,30);        
+        lblci.setBounds(13,195,150,30);        
         txtci.setBounds(134, 200, 150, 30);
 
         lbldireccion.setText("Direccion");
@@ -173,21 +173,6 @@ public class Ventana extends JFrame implements ActionListener {
 
         lblproducto.setText("Producto");
         lblproducto.setBounds(34, 45, 335, 90);
-
-//        lblproducto1.setText("chocolate 1:");
-//        lblproducto1.setBounds(80, 330, 70, 20);
-//
-//        txtproducto1.setBounds(150, 330, 140, 25);
-//
-//        lblproducto2.setText("chocolate 2: ");
-//        lblproducto2.setBounds(80, 370, 70, 20);
-//
-//        txtproducto2.setBounds(150, 370, 140, 25);
-//
-//        lblproducto3.setText("chocolate 3: ");
-//        lblproducto3.setBounds(80, 370, 70, 20);
-//        txtproducto3.setBounds(150, 370, 140, 25);
-
       
         cbxproducto.setBounds(150, 410, 160, 20);
 
@@ -261,10 +246,6 @@ public class Ventana extends JFrame implements ActionListener {
         }
     }
 
-    public void producto(int producto1, int producto2, int procucto3) {
-
-    }
-
     //Metodo mostrarInfomacion, mostrara todo el contenido del documento creado
     public void mostrarInformacion() {
 
@@ -302,11 +283,6 @@ public class Ventana extends JFrame implements ActionListener {
 
         }
 
-//        if (ae.getSource() == btncalcular){
-//            
-//            Double calcular = Double.parseDouble(txtnumero1.getText());            
-//            Double calcularr = Double.parseDouble(txtnumero2.getText());
-//                    
-//            operacion(calcular,calcularr);
+
     }
 }
